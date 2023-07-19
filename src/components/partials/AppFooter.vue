@@ -1,13 +1,15 @@
-<template>
-
-</template>
-
 <script>
 export default {
-  name: "Footer"
-}
+  name: "Footer",
+};
 </script>
 
-<style scoped>
+<template>
+  <footer class="bg-dark text-white">
+    <div class="container">
+      <a><i class="bi bi-github"></i></a>
+    </div>
+  </footer>
+</template>
 
-</style>
+<style scoped></style>
