@@ -16,7 +16,7 @@ export default defineComponent({
 
   <main>
     <div class="container">
-      <cocktails-list/>
+      <router-view></router-view>
     </div>
   </main>
 
@@ -25,5 +25,5 @@ export default defineComponent({
 </template>
 
 <style lang="scss">
-
+@import "bootstrap/scss/bootstrap";
 </style>
