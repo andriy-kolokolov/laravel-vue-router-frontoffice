@@ -10,7 +10,7 @@ export default {
       class="content container d-flex align-items-center justify-content-between"
     >
       <div class="rights">
-        <span>© 2023 CocktailBar</span>
+        <span>© 2023 CocktailBars</span>
       </div>
 
       <div class="social">
