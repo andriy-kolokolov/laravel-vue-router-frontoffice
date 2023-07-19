@@ -19,6 +19,9 @@
         <li class="nav-item">
           <router-link :to="{ name: 'about' }" class="nav-link">About Us</router-link> 
         </li>
+        <li class="nav-item">
+          <router-link :to="{ name: 'contact' }" class="nav-link active">contact</router-link>
+        </li>
         <!-- <li class="nav-item dropdown">
           <router-link :to="{ name: '#' }" class="nav-link">Buy Here</router-link>
           <ul class="dropdown-menu">
