@@ -58,7 +58,7 @@ export default {
   <!-- PAGINATOR -->
   <nav>
     <ul class="pagination">
-      <li class="page-item" :class="{ disabled: currentPage == 1 }">
+      <li class="page-item" :class="{ disabled: currentPage === 1 }">
         <a class="page-link" href="#" @click="currentPage--">
           <span aria-hidden="true">&laquo;</span>
         </a>
@@ -67,11 +67,11 @@ export default {
         v-for="page in nPages"
         :key="page"
         class="page-item"
-        :class="{ active: page == currentPage }"
+        :class="{ active: page === currentPage }"
       >
         <a class="page-link" href="#" @click="currentPage = page">{{ page }}</a>
       </li>
-      <li class="page-item" :class="{ disabled: currentPage == nPages }">
+      <li class="page-item" :class="{ disabled: currentPage === nPages }">
         <a class="page-link" href="#" @click="currentPage++">
           <span aria-hidden="true">&raquo;</span>
         </a>
@@ -82,7 +82,6 @@ export default {
 
 <style lang="scss" scoped>
 .cardContainer {
-  width: 100;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
