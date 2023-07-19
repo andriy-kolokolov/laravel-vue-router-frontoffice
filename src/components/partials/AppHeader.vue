@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
+      <i class="bi bi-cup-straw"></i>
     </a>
     <!-- <a class="navbar-brand" href="#">Cocktails Bar</a> -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,22 +11,23 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <router-link :to="{ name: 'home' }" class="nav-link">Home</router-link> 
         </li>
+        <!-- <li class="nav-item">
+          <router-link :to="{ name: '#' }" class="nav-link">Try Me</router-link> generate random cocktail
+        </li> -->
         <li class="nav-item">
-          <a class="nav-link" href="#">Try me!</a>  <!-- generate random cocktail-->
+          <router-link :to="{ name: 'about' }" class="nav-link">About Us</router-link> 
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Buy Here
-          </a>
+        <!-- <li class="nav-item dropdown">
+          <router-link :to="{ name: '#' }" class="nav-link">Buy Here</router-link>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Alcoholic</a></li>
-            <li><a class="dropdown-item" href="#">Non alcholic</a></li>
-            <!-- <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li> 3rd voice if you want to add--> 
+            <li><router-link :to="{ name: '#' }" class="nav-link">Alcholic</router-link></li>
+            <li><router-link :to="{ name: '#' }" class="nav-link">Not Alcholic</router-link></li>
+            commento<li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li> 3rd voice if you want to add fine commento
           </ul>
-        </li>
+        </li> -->
         <!-- <li class="nav-item">
           <a class="nav-link disabled">Disabled</a>
         </li> -->
