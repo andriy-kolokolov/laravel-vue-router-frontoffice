@@ -9,11 +9,18 @@ export default {
       drink: [],
     };
   },
+  methods: {
+    getRandom() {
+      // richiesta axios per un cocktail random
+      axios
+        .get(this.store.baseUrl + "api/cocktails/random")
+        .then((response) => {
+          this.drink = response.data.data;
+        });
+    },
+  },
   created() {
-    // richiesta axios per i dati del proj
-    axios.get(this.store.baseUrl + "api/cocktails/random").then((response) => {
-      this.drink = response.data.data;
-    });
+    this.getRandom();
   },
 };
 </script>
@@ -27,6 +34,7 @@ export default {
       <h5>
         {{ drink.recipe }}
       </h5>
+      <button class="btn btn-primary" @click="getRandom()">Try Again</button>
     </div>
     <div class="side-right">
       <img :src="drink.image" :alt="drink.name" />
