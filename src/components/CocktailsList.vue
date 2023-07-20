@@ -6,27 +6,35 @@ export default {
   data() {
     return {
       arrCocktails: [],
-      currentPage: 1,
-      nPages: 0,
+      page: 1,
+      total: 0,
     };
   },
   methods: {
     getCocktails() {
       axios
-        .get("http://127.0.0.1:8000/api/cocktails", {
-          params: {
-            page: this.currentPage,
-          },
-        }) // api link
+        .get("http://127.0.0.1:8000/api/cocktails?page=1") // api link
         .then((response) => {
           this.arrCocktails = response.data.data;
-          this.nPages = response.data.last_page;
+          this.total = response.data.total;
         });
     },
-  },
-  watch: {
-    currentPage() {
-      this.getCocktails();
+    loadMore() {
+      axios
+        .get(`http://127.0.0.1:8000/api/cocktails?page=${this.page + 1}`)
+        .then((response) => {
+          this.arrCocktails = this.arrCocktails.concat(response.data.data);
+          this.page++;
+        });
+    },
+    resetDrink() {
+      axios
+        .get("http://127.0.0.1:8000/api/cocktails?page=1")
+        .then((response) => {
+          this.arrCocktails = response.data.data;
+          this.total = response.data.total;
+          this.page = 1;
+        });
     },
   },
   created() {
@@ -68,29 +76,19 @@ export default {
     </div>
   </div>
 
-  <!-- PAGINATOR -->
-  <nav>
-    <ul class="pagination">
-      <li class="page-item" :class="{ disabled: currentPage === 1 }">
-        <a class="page-link" href="#" @click="currentPage--">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li
-        v-for="page in nPages"
-        :key="page"
-        class="page-item"
-        :class="{ active: page === currentPage }"
-      >
-        <a class="page-link" href="#" @click="currentPage = page">{{ page }}</a>
-      </li>
-      <li class="page-item" :class="{ disabled: currentPage === nPages }">
-        <a class="page-link" href="#" @click="currentPage++">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <!-- LOAD MORE -->
+  <div class="d-flex gap-2 align-items-center justify-content-center">
+    <button
+      v-if="arrCocktails.length != total"
+      @click="loadMore"
+      class="btn btn-primary mb-3"
+    >
+      Show more Cocktails
+    </button>
+    <button @click="resetDrink()" class="btn btn-secondary mb-3">
+      Back on top <i class="bi bi-arrow-up"></i>
+    </button>
+  </div>
 </template>
 
 <style lang="scss" scoped>
