@@ -37,7 +37,7 @@ const router = createRouter({
     },
     {
       path: "/cocktails/:id",
-      name: "cocktails.show",
+      name: "show",
       component: AppShow,
     },
   ],

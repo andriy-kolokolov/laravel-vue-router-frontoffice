@@ -1,24 +1,44 @@
 <script>
+import axios from "axios";
 import { store } from "../store";
 export default {
   data() {
     return {
       store,
+      axios,
+      drink: [],
     };
   },
   created() {
     // richiesta axios per i dati del proj
     axios
-      .get(this.store.baseUrl + "api/cocktails/" + this.$route.params.slug)
+      .get(this.store.baseUrl + "api/cocktails/" + this.$route.params.id)
       .then((response) => {
-        console.log(response);
+        this.drink = response.data.data;
       });
   },
 };
 </script>
 
 <template>
-  <h1>Sono la show</h1>
+  <div class="d-flex">
+    <div class="side-left">
+      <h1>
+        {{ drink.name }}
+      </h1>
+      <h5>
+        {{ drink.recipe }}
+      </h5>
+    </div>
+    <div class="side-right">
+      <img :src="drink.image" alt="" />
+    </div>
+  </div>
 </template>
 
-<style></style>
+<style>
+.side-left,
+.side-right {
+  width: 50%;
+}
+</style>
