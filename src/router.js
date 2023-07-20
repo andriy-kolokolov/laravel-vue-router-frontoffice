@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import AppHome from "./pages/AppHome.vue";
 import AppAbout from "./pages/AppAbout.vue";
 import AppContact from "./pages/AppContact.vue";
+import AppRandom from "./pages/AppRandom.vue";
 import AppAlcohol from "./pages/AppAlcohol.vue";
 import AppAlcoholFree from "./pages/AppAlcoholFree.vue";
 import AppShow from "./pages/AppShow.vue";
@@ -24,6 +25,11 @@ const router = createRouter({
       path: "/contact",
       name: "contact",
       component: AppContact,
+    },
+    {
+      path: "/random",
+      name: "random",
+      component: AppRandom,
     },
     {
       path: "/alcohol",

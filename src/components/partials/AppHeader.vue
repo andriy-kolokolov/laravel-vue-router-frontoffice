@@ -29,6 +29,11 @@ export default {
               >Home</router-link
             >
           </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'random' }" class="nav-link"
+              >Try Me!</router-link
+            >
+          </li>
           <!-- <li class="nav-item">
           <router-link :to="{ name: '#' }" class="nav-link">Try Me</router-link> generate random cocktail
         </li> -->
