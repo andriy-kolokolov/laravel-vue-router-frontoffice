@@ -1,14 +1,22 @@
 <script>
+import ProjectList from "../CocktailsList.vue";
+
 export default {
   name: "AppHeader",
+  components: {ProjectList},
 };
 </script>
 
 <template>
-  <header class="header container-fluid">
+  <header class="header mb-5 shadow-lg container-fluid d-flex justify-content-between ">
+
+    <!--    LOGO    -->
+    <div class="logo-img-wrapper">
+      <img src="../../assets/logo-no-background.png" alt=""/>
+    </div>
 
     <!--    NAVIGATION    -->
-    <nav class="nav-bar">
+    <nav class="nav-wrapper">
       <ul class="nav-list">
         <li class="nav-item">
           <router-link :to="{ name: 'home' }" class="nav-link"
@@ -35,28 +43,83 @@ export default {
           >
         </li>
       </ul>
+
+      <!--    SEARCH    -->
+      <div class="search-wrapper">
+        <form class="d-flex" role="search">
+          <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Insert cocktail name"
+              aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
     </nav>
 
-    <!--    LOGO    -->
-    <div class="logo-img-wrapper">
-      <img src="../../assets/logo-no-background.png" alt=""/>
-    </div>
-
-    <!--    SEARCH    -->
-    <form class="d-flex" role="search">
-      <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Insert cocktail name"
-          aria-label="Search"
-      />
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
 
   </header>
 </template>
 
 <style lang="scss" scoped>
+@use './src/assets/partials/variables' as *;
 
+$nav-link-border-size: 5px;
 
+.header {
+  height: 100px;
+
+}
+
+.logo-img-wrapper {
+  height: 100%;
+  padding-top: $site-logo-vertical-padding;
+  padding-bottom: $site-logo-vertical-padding;
+
+  img {
+    height: 100%;
+  }
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  .nav-list {
+    margin: 0;
+    height: 100%;
+    display: flex;
+
+    .nav-item {
+      height: 100%;
+      list-style: none;
+
+      .nav-link {
+        font-size: 20px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        border-bottom: $nav-link-border-size solid transparent;
+        transition: $transition-links;
+
+        &:hover {
+          color: $color-primary;
+          border-bottom: $nav-link-border-size solid $color-primary;
+        }
+
+        &.router-link-active {
+          color: $color-primary;
+          border-bottom: $nav-link-border-size solid $color-primary;
+        }
+      }
+
+      &.active {
+
+      }
+    }
+  }
+}
 </style>
