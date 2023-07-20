@@ -30,7 +30,6 @@ export default {
 
                 if (response.data.success) {
                     this.showSuccess = true;
-                    this.resetForm()
                     this.resetForm();
                 }else {
                     this.hasError = true;
