@@ -59,13 +59,16 @@ export default {};
 
     img {
       height: 100px;
-      background-color: white;
+      background-color: rgba($color: #ffff, $alpha: 0.4);
+      box-shadow: 0px 0px 50px white;
     }
 
     h4 {
       width: 72%;
       text-align: center;
+      border-radius: 80px;
       background-color: rgba($color: #ffff, $alpha: 0.5);
+      box-shadow: 0px 0px 50px white;
     }
   }
 }
