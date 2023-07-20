@@ -11,7 +11,7 @@ export default {
         <i class="bi bi-cup-straw"></i>
       </a>
       <!-- <a class="navbar-brand" href="#">Cocktails Bar</a> -->
-      <button
+      <!-- <button
         class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
@@ -21,9 +21,9 @@ export default {
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button> -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
             <router-link :to="{ name: 'home' }" class="nav-link"
               >Home</router-link
@@ -55,7 +55,10 @@ export default {
           <a class="nav-link disabled">Disabled</a>
         </li> -->
         </ul>
-        <form class="d-flex" role="search">
+        <div class="image m-auto">
+          <img src="../../assets/logo-no-background.png" alt="" />
+        </div>
+        <form class="d-flex align-self-end" role="search">
           <input
             class="form-control me-2"
             type="search"
@@ -69,4 +72,10 @@ export default {
   </nav>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.image {
+  img {
+    height: 35px;
+  }
+}
+</style>

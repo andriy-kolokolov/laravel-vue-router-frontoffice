@@ -58,8 +58,13 @@ export default {
       v-for="cocktail in arrCocktails"
       :key="cocktail.id"
     >
-      <img :src="cocktail.image" class="card-img-top" alt="..." />
-      <p class="cc-name position-absolute z-1">{{ cocktail.name }}</p>
+      <router-link
+        :to="{ name: 'show', params: { id: cocktail.id } }"
+        class="nav-link"
+      >
+        <img :src="cocktail.image" class="card-img-top" alt="..." />
+        <p class="cc-name position-absolute z-1">{{ cocktail.name }}</p>
+      </router-link>
     </div>
   </div>
 
