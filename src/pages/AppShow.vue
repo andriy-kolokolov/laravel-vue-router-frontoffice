@@ -21,24 +21,31 @@ export default {
 </script>
 
 <template>
-  <div class="d-flex">
-    <div class="side-left">
-      <h1>
-        {{ drink.name }}
-      </h1>
-      <h5>
-        {{ drink.recipe }}
-      </h5>
+  <div
+    class="d-flex justify-content-between align-items-center container mt-3 text-center"
+  >
+    <div class="card" style="width: 18rem; height: fit-content">
+      <div class="card-body">
+        <h1 class="card-title">{{ drink.name }}</h1>
+        <p class="card-text">
+          {{ drink.recipe }}
+        </p>
+      </div>
+      <button class="btn btn-secondary m-3">
+        <router-link :to="{ name: 'home' }" class="nav-link">
+          Back
+        </router-link>
+      </button>
     </div>
-    <div class="side-right">
-      <img :src="drink.image" alt="" />
+
+    <div class="card myCard-img">
+      <img :src="drink.image" class="card-img-top" :alt="drink.name" />
     </div>
   </div>
 </template>
 
 <style>
-.side-left,
-.side-right {
-  width: 50%;
+.myCard-img {
+  overflow: hidden;
 }
 </style>

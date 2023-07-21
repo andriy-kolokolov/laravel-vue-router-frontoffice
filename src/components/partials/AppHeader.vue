@@ -1,33 +1,34 @@
 <script>
 import ProjectList from "../CocktailsList.vue";
-import {store} from "../../store.js";
+import { store } from "../../store.js";
 
 export default {
   name: "AppHeader",
-  components: {ProjectList},
+  components: { ProjectList },
   data() {
     return {
-      searchQuery: '',
-    }
+      searchQuery: "",
+    };
   },
   methods: {
     search() {
       if (this.searchQuery.length !== 0) {
         store.arrSearchCocktails = [];
-        this.$emit('search', this.searchQuery)
-        this.searchQuery = '';
+        this.$emit("search", this.searchQuery);
+        this.searchQuery = "";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
 <template>
-  <header class="header shadow-lg container-fluid d-flex justify-content-between ">
-
+  <header
+    class="header shadow-lg container-fluid d-flex justify-content-between"
+  >
     <!--    LOGO    -->
     <div class="logo-img-wrapper">
-      <img src="../../assets/logo-no-background.png" alt=""/>
+      <img src="../../assets/logo-no-background.png" alt="" />
     </div>
 
     <!--    NAVIGATION    -->
@@ -35,33 +36,28 @@ export default {
       <ul class="nav-list">
         <li class="nav-item">
           <router-link :to="{ name: 'home' }" class="nav-link"
-          >Home
-          </router-link
-          >
+            >Home
+          </router-link>
         </li>
         <li class="nav-item">
           <router-link :to="{ name: 'random' }" class="nav-link"
-          >Try Me!
-          </router-link
-          >
+            >Try Me!
+          </router-link>
         </li>
         <li class="nav-item">
           <router-link :to="{ name: 'about' }" class="nav-link"
-          >About Us
-          </router-link
-          >
+            >About Us
+          </router-link>
         </li>
         <li class="nav-item">
           <router-link :to="{ name: 'contact' }" class="nav-link"
-          >Contact Us
-          </router-link
-          >
+            >Contact Us
+          </router-link>
         </li>
         <li class="nav-item">
           <router-link :to="{ name: 'advanced-search' }" class="nav-link"
-          >Search +
-          </router-link
-          >
+            >Search +
+          </router-link>
         </li>
       </ul>
 
@@ -69,25 +65,25 @@ export default {
       <div class="search-wrapper">
         <form class="d-flex" role="search">
           <input
-              v-model="searchQuery"
-              class="form-control me-2"
-              type="text"
-              placeholder="Insert cocktail name"
-              aria-label="Search"
-              @keydown.enter.prevent="search"
+            v-model="searchQuery"
+            class="form-control me-2"
+            type="text"
+            placeholder="Insert cocktail name"
+            aria-label="Search"
+            @keydown.enter.prevent="search"
           />
-          <div @click.prevent="search" class="btn btn-outline-success">Search</div>
+          <div @click.prevent="search" class="btn btn-outline-success">
+            Search
+          </div>
         </form>
       </div>
     </nav>
-
-
   </header>
 </template>
 
 <style lang="scss" scoped>
-@use './src/assets/partials/variables' as *;
-@use './src/assets/main' as *;
+@use "./src/assets/partials/variables" as *;
+@use "./src/assets/main" as *;
 
 $nav-link-border-size: 5px;
 
@@ -96,7 +92,6 @@ $nav-link-border-size: 5px;
   // position: fixed;
   // top: 0;
   // z-index: 9;
-
 }
 
 .logo-img-wrapper {
@@ -141,10 +136,6 @@ $nav-link-border-size: 5px;
           color: $color-primary;
           border-bottom: $nav-link-border-size solid $color-primary;
         }
-      }
-
-      &.active {
-
       }
     }
   }
