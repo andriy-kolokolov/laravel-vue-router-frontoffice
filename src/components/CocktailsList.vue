@@ -44,37 +44,38 @@ export default {
 </script>
 
 <template>
-  <h2>Cocktails List</h2>
-
-  <div class="cardCont">
-    <div class="isCard" v-for="cocktail in arrCocktails" :key="cocktail.id">
-      <img :src="cocktail.image" class="isCard-img" :alt="cocktail.name" />
-      <div class="isCard-body">
-        <h1 class="isCard-title">{{ cocktail.name }}</h1>
-        <button class="isCard-btn">
-          <router-link
-            :to="{ name: 'show', params: { id: cocktail.id } }"
-            class="nav-link router-link"
-          >
-            View more detail
-          </router-link>
-        </button>
+  <div class="container">
+    <h2>Cocktails List</h2>
+    <div class="cardCont">
+      <div class="isCard" v-for="cocktail in arrCocktails" :key="cocktail.id">
+        <img :src="cocktail.image" class="isCard-img" :alt="cocktail.name" />
+        <div class="isCard-body">
+          <h1 class="isCard-title">{{ cocktail.name }}</h1>
+          <button class="isCard-btn">
+            <router-link
+              :to="{ name: 'show', params: { id: cocktail.id } }"
+              class="nav-link router-link"
+            >
+              View more detail
+            </router-link>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- LOAD MORE -->
-  <div class="d-flex gap-2 align-items-center justify-content-center">
-    <button
-      v-if="arrCocktails.length != total"
-      @click="loadMore"
-      class="btn btn-primary"
-    >
-      Show more Cocktails
-    </button>
-    <button @click="resetDrink()" class="btn btn-secondary">
-      Back on top <i class="bi bi-arrow-up"></i>
-    </button>
+    <!-- LOAD MORE -->
+    <div class="d-flex gap-2 align-items-center justify-content-center">
+      <button
+        v-if="arrCocktails.length != total"
+        @click="loadMore"
+        class="btn btn-primary"
+      >
+        Show more Cocktails
+      </button>
+      <button @click="resetDrink()" class="btn btn-secondary">
+        Back on top <i class="bi bi-arrow-up"></i>
+      </button>
+    </div>
   </div>
 </template>
 
