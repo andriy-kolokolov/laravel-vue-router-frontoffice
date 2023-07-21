@@ -36,6 +36,9 @@ export default {
           {{ drink.recipe }}
         </p>
       </div>
+      <button class="btn btn-primary m-3" @click="getRandom()">
+        Try Again!
+      </button>
     </div>
 
     <div class="card myCard-img">
