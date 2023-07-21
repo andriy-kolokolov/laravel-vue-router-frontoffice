@@ -46,15 +46,18 @@ export default {
 
 <template>
   <h2 class="mt-4">Alcohol Free cocktails list</h2>
-  <div class="cardContainer row row-cols-4 mb-5 mt-3" v-for="cocktail in arrCocktails" :key="cocktail.id">
-  
-    <div v-if="(cocktail.alcoholic === 'Non alcoholic')"
-    class="col position-relative">
-        <img :src="cocktail.image" class="card-img-top" alt="..." />
-        <p class="cc-name position-absolute z-1">{{ cocktail.name }}</p>
+  <div class="d-flex d-inline-flex">
+    <div v-for="cocktail in arrCocktails" :key="cocktail.id">
+      <div class="cardContainer px-4" v-if="(cocktail.alcoholic === 'Non alcoholic')">
+        <div class="position-relative">
+          <img :src="cocktail.image" class="card-img-top" alt="..." />
+          <p class="cc-name position-absolute z-1">{{ cocktail.name }}</p>
+        </div>
+      </div>
     </div>
-    
   </div>
+  
+  
 
   <!-- PAGINATOR  TO DO il paginator si riempie di pagine vuote e la lista cocktails ha spazi "presi" da cocktails non caircati, fare una pagina unica paginator e raggruppare i cocktails non alcolici-->
   <nav> 
@@ -105,5 +108,9 @@ export default {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.prova{
+  flex: 0 0 33%;
 }
 </style>
