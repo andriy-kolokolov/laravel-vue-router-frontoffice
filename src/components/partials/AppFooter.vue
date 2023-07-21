@@ -26,6 +26,8 @@ export default {
 <style lang="scss" scoped>
 footer {
   height: 4rem;
+  position: sticky;
+  top: 100vh;
   // position: fixed;
   // bottom: 0;
   // right: 0;
