@@ -48,7 +48,7 @@ export default defineComponent({
   <app-header @search="searchByName"/>
 
   <main>
-    <router-view @search="searchByIngredient"></router-view>
+    <router-view></router-view>
   </main>
 
   <app-footer/>

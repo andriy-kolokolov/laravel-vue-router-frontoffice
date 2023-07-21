@@ -12,7 +12,6 @@
           <option value="Vodka">Vodka</option>
           <option value="Tequila">Tequila</option>
           <option value="Whiskey">Whiskey</option>
-          <!-- Add more ingredients here -->
         </select>
       </div>
     </div>
@@ -62,6 +61,7 @@ export default {
   methods: {
     search() {
       if (this.selectedIngredient.length !== 0) {
+        console.log(store.arrSearchCocktailsByIngredient)
         store.arrSearchCocktailsByIngredient = [];
         this.$emit('search', this.selectedIngredient)
         this.selectedIngredient = 'all';
