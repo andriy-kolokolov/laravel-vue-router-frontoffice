@@ -53,10 +53,14 @@ export default {
                 class="d-block w-100 fullscreen-img"
                 alt="First slide"
               />
-              <div class="carousel-caption d-none d-md-block">
-                <h2 v-if="!showCocktails" @click="showCocktails = true">
+              <div class="carousel-caption d-none d-md-block h-50">
+                <button
+                  class="btn btn-light"
+                  v-if="!showCocktails"
+                  @click="showCocktails = true"
+                >
                   Click here for alcoholic cocktails
-                </h2>
+                </button>
                 <div class="container" v-if="showCocktails">
                   <cocktails-list />
                 </div>
@@ -68,10 +72,14 @@ export default {
                 class="d-block w-100 fullscreen-img"
                 alt="Second slide"
               />
-              <div class="carousel-caption d-none d-md-block">
-                <h2 v-if="!showAlcoholFree" @click="showAlcoholFree = true">
+              <div class="carousel-caption d-none d-md-block h-50">
+                <button
+                  class="btn btn-dark"
+                  v-if="!showAlcoholFree"
+                  @click="showAlcoholFree = true"
+                >
                   Click here for alcohol-free cocktails
-                </h2>
+                </button>
                 <div v-if="showAlcoholFree">
                   <AlcoholFree />
                 </div>
@@ -101,12 +109,12 @@ export default {
     </div>
 
     <!-- Contenuto mostrato dopo il click sul carosello -->
-    <div v-if="showCocktails">
+    <div v-if="showCocktails" class="container">
       <button @click="goToHome" class="btn btn-warning">Back to Home</button>
       <cocktails-list />
     </div>
 
-    <div v-if="showAlcoholFree">
+    <div v-if="showAlcoholFree" class="container">
       <button @click="goToHome" class="btn btn-warning">Back to Home</button>
       <AlcoholFree />
     </div>
