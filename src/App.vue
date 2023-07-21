@@ -14,7 +14,7 @@ export default defineComponent({
     }
   },
   methods: {
-    requestToAPI(searchQuery) {
+    searchByName(searchQuery) {
       axios.get(this.store.baseUrl + `api/cocktails/search`, {
         params: {
           name: searchQuery
@@ -27,6 +27,17 @@ export default defineComponent({
               path: '/search',
             });
           })
+    },
+    searchByIngredient(ingredientName) {
+      axios.get(this.store.baseUrl + 'api/cocktails/searchByIngredient', {
+        params: {
+          name: ingredientName
+        }
+      })
+          .then(response => {
+            console.log(response.data.data)
+            this.store.arrSearchCocktailsByIngredient = response.data.data;
+          })
     }
   }
 })
@@ -34,7 +45,7 @@ export default defineComponent({
 
 <template>
 
-  <app-header @search="requestToAPI"/>
+  <app-header @search="searchByName"/>
 
   <main>
     <router-view></router-view>
@@ -46,13 +57,15 @@ export default defineComponent({
 
 <style lang="scss">
 @import "bootstrap/scss/bootstrap";
+
 #app {
   height: 100vh;
-  main{
-      .container {
-        width: 100%;
+
+  main {
+    .container {
+      width: 100%;
     }
   }
-  
+
 }
 </style>
