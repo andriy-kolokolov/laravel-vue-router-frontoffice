@@ -1,14 +1,19 @@
 <template>
-  <cocktail-card
-      v-for="(cocktail, index) in this.store.arrSearchCocktails"
-      :cocktail="cocktail"
-      :key="index"
-  />
+  <h3 class="mb-4">Find <strong>{{ store.arrSearchCocktails.length }}</strong> cocktail{{ store.arrSearchCocktails.length !== 1 ? 's' : '' }}:</h3>
+  <div class="row">
+      <cocktail-card
+          class="col-md-3"
+          v-for="(cocktail, index) in store.arrSearchCocktails"
+          :cocktail="cocktail"
+          :key="index"
+      />
+  </div>
 </template>
 
 <script>
 import CocktailCard from "../components/CocktailCard.vue";
 import {store} from "../store.js";
+
 
 export default {
   name: "AppSearchResult",

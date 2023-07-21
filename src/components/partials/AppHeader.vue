@@ -13,7 +13,7 @@ export default {
   methods: {
     search() {
       if (this.searchQuery.length !== 0) {
-        store.arrMovies = [];
+        store.arrSearchCocktails = [];
         this.$emit('search', this.searchQuery)
         this.searchQuery = '';
       }
