@@ -52,8 +52,14 @@ export default {
           >
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'contact' }" class="nav-link active"
-          >contact
+          <router-link :to="{ name: 'contact' }" class="nav-link"
+          >Contact Us
+          </router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link :to="{ name: 'advanced-search' }" class="nav-link"
+          >Search +
           </router-link
           >
         </li>
@@ -81,6 +87,7 @@ export default {
 
 <style lang="scss" scoped>
 @use './src/assets/partials/variables' as *;
+@use './src/assets/main' as *;
 
 $nav-link-border-size: 5px;
 

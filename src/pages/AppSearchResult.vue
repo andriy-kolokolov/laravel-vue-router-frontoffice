@@ -13,7 +13,8 @@
       </div>
     </div>
     <div v-else>
-      <h3>No cocktails was found... :(</h3>
+      <h3 class="mb-4">Find <strong>{{ store.arrSearchCocktails.length }}</strong>
+        cocktails</h3>
     </div>
   </transition>
 </template>
