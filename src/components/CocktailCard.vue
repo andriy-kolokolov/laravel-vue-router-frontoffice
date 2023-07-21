@@ -35,15 +35,16 @@ export default {
   .card-img-wrapper {
     max-width: 100%;
 
-    transition: $transition-links;
-
     img {
       width: 100%;
+      transition: .3s;
+      cursor: pointer;
     }
-  }
 
-  &:hover .card-img-wrapper{
-    scale: 1.05;
+    &:hover img {
+      scale: 1.05;
+    }
+
   }
 }
 
