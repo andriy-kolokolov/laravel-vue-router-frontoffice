@@ -1,9 +1,24 @@
 <script>
 import ProjectList from "../CocktailsList.vue";
+import {store} from "../../store.js";
 
 export default {
   name: "AppHeader",
   components: {ProjectList},
+  data() {
+    return {
+      searchQuery: '',
+    }
+  },
+  methods: {
+    search() {
+      if (this.searchQuery.length !== 0) {
+        store.arrMovies = [];
+        this.$emit('search', this.searchQuery)
+        this.searchQuery = '';
+      }
+    }
+  }
 };
 </script>
 
@@ -48,12 +63,14 @@ export default {
       <div class="search-wrapper">
         <form class="d-flex" role="search">
           <input
+              v-model="searchQuery"
               class="form-control me-2"
-              type="search"
+              type="text"
               placeholder="Insert cocktail name"
               aria-label="Search"
+              @keydown.enter.prevent="search"
           />
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <div @click.prevent="search" class="btn btn-outline-success">Search</div>
         </form>
       </div>
     </nav>

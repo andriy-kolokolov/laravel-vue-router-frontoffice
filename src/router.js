@@ -6,6 +6,7 @@ import AppRandom from "./pages/AppRandom.vue";
 import AppAlcohol from "./pages/AppAlcohol.vue";
 import AppAlcoholFree from "./pages/AppAlcoholFree.vue";
 import AppShow from "./pages/AppShow.vue";
+import AppSearchResult from "./pages/AppSearchResult.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -45,6 +46,10 @@ const router = createRouter({
       path: "/cocktails/:id",
       name: "show",
       component: AppShow,
+    },{
+      path: "/search",
+      name: "searchResult",
+      component: AppSearchResult,
     },
   ],
 });
