@@ -26,11 +26,13 @@ export default {
 <style lang="scss" scoped>
 footer {
   height: 4rem;
+  position: sticky;
+  top: 100vh;
   // position: fixed;
   // bottom: 0;
   // right: 0;
   // left: 0;
-  background-color: rgba($color: #000000, $alpha: .7);
+  background-color: rgba($color: #000000, $alpha: 0.7);
   .content {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
