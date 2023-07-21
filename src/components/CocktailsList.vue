@@ -45,26 +45,21 @@ export default {
 
 <template>
   <h2>Cocktails List</h2>
-  <!-- <div class="cardContainer row row-cols-4 mb-5">
-    <div
-      class="col position-relative"
-      v-for="cocktail in arrCocktails"
-      :key="cocktail.id"
-    >
-      <router-link
-        :to="{ name: 'show', params: { id: cocktail.id } }"
-        class="nav-link router-link"
-      >
-        <img :src="cocktail.image" class="card-img-top" :alt="cocktail.name" />
-        <p class="cc-name position-absolute z-1">{{ cocktail.name }}</p>
-      </router-link>
-    </div>
-  </div> -->
 
-  <!-- prova flex -->
   <div class="cardCont">
     <div class="isCard" v-for="cocktail in arrCocktails" :key="cocktail.id">
-      <img :src="cocktail.image" class="card-img" :alt="cocktail.name" />
+      <img :src="cocktail.image" class="isCard-img" :alt="cocktail.name" />
+      <div class="isCard-body">
+        <h1 class="isCard-title">{{ cocktail.name }}</h1>
+        <button class="isCard-btn">
+          <router-link
+            :to="{ name: 'show', params: { id: cocktail.id } }"
+            class="nav-link router-link"
+          >
+            View more detail
+          </router-link>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -73,67 +68,92 @@ export default {
     <button
       v-if="arrCocktails.length != total"
       @click="loadMore"
-      class="btn btn-primary mb-3"
+      class="btn btn-primary"
     >
       Show more Cocktails
     </button>
-    <button @click="resetDrink()" class="btn btn-secondary mb-3">
+    <button @click="resetDrink()" class="btn btn-secondary">
       Back on top <i class="bi bi-arrow-up"></i>
     </button>
   </div>
 </template>
 
 <style lang="scss" scoped>
-// .col {
-//   padding: 0;
-// }
-
-// img {
-//   filter: blur(0px);
-//   transition: 0.2s ease;
-// }
-// .router-link:hover img {
-//   filter: blur(5px);
-//   transition: 0.2s ease;
-// }
-
-// .router-link:hover .cc-name {
-//   opacity: 1;
-//   transition: 0.3s ease;
-// }
-
-// .cc-name {
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   transition: 0.3s ease;
-
-//   font-size: 2.5rem;
-//   font-weight: 900;
-//   opacity: 0;
-//   padding-inline: 10px;
-//   text-align: center;
-//   /*background-image: linear-gradient(
-//       to right,
-//       rgba(255, 0, 0, 0),
-//       rgba(255, 0, 0, 1)
-//     );*/
-
-//   /* rendere il testo non cliccabile */
-//   -webkit-user-select: none;
-//   -moz-user-select: none;
-//   -ms-user-select: none;
-//   user-select: none;
-// }
-
-// -----
 .cardCont {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+
   .isCard {
-    width: 320px;
+    width: calc((100% / 4) - 2em);
     height: 500px;
     border-radius: 20px;
     overflow: hidden;
-    // .card-img{}
+    position: relative;
+    cursor: default;
+
+    .isCard-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    .isCard-body {
+      width: 100%;
+      height: 100%;
+
+      position: absolute;
+      top: 0;
+      right: -100%;
+
+      background: rgba(0, 0, 0, 0.346);
+      backdrop-filter: blur(5px);
+      border-radius: 15px;
+      color: white;
+
+      padding: 30px;
+      text-align: center;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      transition: 0.5s ease;
+
+      .isCard-title {
+        text-transform: uppercase;
+        font-size: 40px;
+        font-weight: 700;
+      }
+
+      .isCard-btn {
+        padding: 10px 20px;
+        margin: 30px 0;
+
+        border: none;
+        border-radius: 15px;
+
+        background-color: white;
+        outline: none;
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
   }
+}
+
+.isCard:hover .isCard-body {
+  right: 0;
+  transition: 0.5s ease;
 }
 </style>
