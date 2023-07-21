@@ -45,22 +45,7 @@ export default {
 
 <template>
   <h2>Cocktails List</h2>
-  <div class="cardContainer row row-cols-4 mb-5">
-    <!--  <div
-      class="card"
-      style="width: 18rem"
-      v-for="cocktail in arrCocktails"
-      :key="cocktail.id"
-    >
-      <img :src="cocktail.image" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">{{ cocktail.name }}</h5>
-        <p class="card-text">
-          {{ cocktail.recipe }}
-        </p>
-         <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div> -->
+  <!-- <div class="cardContainer row row-cols-4 mb-5">
     <div
       class="col position-relative"
       v-for="cocktail in arrCocktails"
@@ -68,11 +53,18 @@ export default {
     >
       <router-link
         :to="{ name: 'show', params: { id: cocktail.id } }"
-        class="nav-link"
+        class="nav-link router-link"
       >
-        <img :src="cocktail.image" class="card-img-top" alt="..." />
+        <img :src="cocktail.image" class="card-img-top" :alt="cocktail.name" />
         <p class="cc-name position-absolute z-1">{{ cocktail.name }}</p>
       </router-link>
+    </div>
+  </div> -->
+
+  <!-- prova flex -->
+  <div class="cardCont">
+    <div class="isCard" v-for="cocktail in arrCocktails" :key="cocktail.id">
+      <img :src="cocktail.image" class="card-img" :alt="cocktail.name" />
     </div>
   </div>
 
@@ -92,28 +84,56 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.col {
-  padding: 0;
-}
-.cc-name {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
-  padding-inline: 10px;
-  text-align: center;
-  /*background-image: linear-gradient(
-    to right,
-    rgba(255, 0, 0, 0),
-    rgba(255, 0, 0, 1)
-  );*/
-  //rendere il testo non cliccabile
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+// .col {
+//   padding: 0;
+// }
+
+// img {
+//   filter: blur(0px);
+//   transition: 0.2s ease;
+// }
+// .router-link:hover img {
+//   filter: blur(5px);
+//   transition: 0.2s ease;
+// }
+
+// .router-link:hover .cc-name {
+//   opacity: 1;
+//   transition: 0.3s ease;
+// }
+
+// .cc-name {
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   transition: 0.3s ease;
+
+//   font-size: 2.5rem;
+//   font-weight: 900;
+//   opacity: 0;
+//   padding-inline: 10px;
+//   text-align: center;
+//   /*background-image: linear-gradient(
+//       to right,
+//       rgba(255, 0, 0, 0),
+//       rgba(255, 0, 0, 1)
+//     );*/
+
+//   /* rendere il testo non cliccabile */
+//   -webkit-user-select: none;
+//   -moz-user-select: none;
+//   -ms-user-select: none;
+//   user-select: none;
+// }
+
+// -----
+.cardCont {
+  .isCard {
+    width: 320px;
+    height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    // .card-img{}
+  }
 }
 </style>
