@@ -7,8 +7,8 @@
       <div class="card-body d-flex flex-column">
         <h4 class="card-title align-self-auto">{{ cocktail.name }}</h4>
         <div>
-          <strong>Recipe: </strong>
-          <div class="card-description"><br>{{ cocktail.recipe }}</div>
+          <div class="mb-2 fw-bold">Recipe: </div>
+          <div class="card-description">{{ cocktail.recipe }}</div>
         </div>
       </div>
     </div>
