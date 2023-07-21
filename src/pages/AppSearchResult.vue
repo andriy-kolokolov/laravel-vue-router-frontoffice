@@ -1,22 +1,24 @@
 <template>
-  <transition>
-    <div v-if="store.arrSearchCocktails.length > 0">
-      <h3 class="mb-4">Find <strong>{{ store.arrSearchCocktails.length }}</strong>
-        cocktail{{ store.arrSearchCocktails.length !== 1 ? 's' : '' }}:</h3>
-      <div class="row g-3">
-        <cocktail-card
-            class="col-md-6 col-lg-4"
-            v-for="(cocktail, index) in store.arrSearchCocktails"
-            :cocktail="cocktail"
-            :key="index"
-        />
+  <div class="container mt-4">
+    <transition>
+      <div v-if="store.arrSearchCocktails.length > 0">
+        <h3 class="mb-4">Find <strong>{{ store.arrSearchCocktails.length }}</strong>
+          cocktail{{ store.arrSearchCocktails.length !== 1 ? 's' : '' }}:</h3>
+        <div class="row g-3">
+          <cocktail-card
+              class="col-md-6 col-lg-4"
+              v-for="(cocktail, index) in store.arrSearchCocktails"
+              :cocktail="cocktail"
+              :key="index"
+          />
+        </div>
       </div>
-    </div>
-    <div v-else>
-      <h3 class="mb-4">Find <strong>{{ store.arrSearchCocktails.length }}</strong>
-        cocktails</h3>
-    </div>
-  </transition>
+      <div v-else>
+        <h3 class="mb-4">Find <strong>{{ store.arrSearchCocktails.length }}</strong>
+          cocktails</h3>
+      </div>
+    </transition>
+  </div>
 </template>
 
 <script>
