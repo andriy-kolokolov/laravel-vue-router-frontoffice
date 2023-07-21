@@ -37,9 +37,7 @@ export default defineComponent({
   <app-header @search="requestToAPI"/>
 
   <main>
-    <div class="container">
-      <router-view></router-view>
-    </div>
+    <router-view></router-view>
   </main>
 
   <app-footer/>
@@ -48,4 +46,13 @@ export default defineComponent({
 
 <style lang="scss">
 @import "bootstrap/scss/bootstrap";
+#app {
+  height: 100vh;
+  main{
+      .container {
+        width: 100%;
+    }
+  }
+  
+}
 </style>

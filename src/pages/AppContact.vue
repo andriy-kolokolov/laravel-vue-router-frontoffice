@@ -50,7 +50,8 @@ export default {
 </script>
 
 <template>
-  <h1>contact us</h1>
+  <div class="container">
+    <h1>contact us</h1>
 
     <div v-if="hasError" class="alert alert-danger alert-dismissible fade show" role="alert">
       errore nella compilazione!!
@@ -84,6 +85,7 @@ export default {
       </div>
       <button type="submit" class="btn btn-primary" :disabled="isSending">Submit</button>
     </form>
+  </div>
 </template>
 
 <style lang="scss" scoped>

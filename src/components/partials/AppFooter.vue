@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <footer class="mt-5 bg-dark text-white">
+  <footer class="text-white">
     <div
       class="content container d-flex align-items-center justify-content-between"
     >
@@ -25,6 +25,12 @@ export default {
 
 <style lang="scss" scoped>
 footer {
+  height: 4rem;
+  // position: fixed;
+  // bottom: 0;
+  // right: 0;
+  // left: 0;
+  background-color: rgba($color: #000000, $alpha: .7);
   .content {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;

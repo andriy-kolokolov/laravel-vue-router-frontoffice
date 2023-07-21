@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-  <header class="header mb-5 shadow-lg container-fluid d-flex justify-content-between ">
+  <header class="header shadow-lg container-fluid d-flex justify-content-between ">
 
     <!--    LOGO    -->
     <div class="logo-img-wrapper">
@@ -93,6 +93,9 @@ $nav-link-border-size: 5px;
 
 .header {
   height: 100px;
+  // position: fixed;
+  // top: 0;
+  // z-index: 9;
 
 }
 

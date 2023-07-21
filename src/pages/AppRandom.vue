@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <div class="d-flex">
+  <div class="d-flex container">
     <div class="side-left">
       <h1>
         {{ drink.name }}
