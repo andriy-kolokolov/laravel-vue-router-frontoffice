@@ -5,7 +5,7 @@
       <!-- Ingredient Dropdown -->
       <div class="col-md-4">
         <label for="ingredient">Select Ingredient:</label>
-        <select class="form-control" id="ingredient">
+        <select class="form-control" id="ingredient" v-model="selectedIngredient">
           <option value="all">All</option>
           <option value="Gin">Gin</option>
           <option value="Rum">Rum</option>
@@ -17,25 +17,25 @@
       </div>
     </div>
     <div class="mt-3">
-      <button class="btn btn-primary">Search Cocktails</button>
+      <div @click.prevent="search" class="btn btn-outline-success">Search by ingredient</div>
     </div>
 
     <div class="row mt-4">
       <transition>
-        <div v-if="store.arrSearchCocktails.length > 0">
-          <h3 class="mb-4">Find <strong>{{ store.arrSearchCocktails.length }}</strong>
-            cocktail{{ store.arrSearchCocktails.length !== 1 ? 's' : '' }}:</h3>
+        <div v-if="store.arrSearchCocktailsByIngredient > 0">
+          <h3 class="mb-4">Find <strong>{{ store.arrSearchCocktailsByIngredient.length }}</strong>
+            cocktail{{ store.arrSearchCocktailsByIngredient.length !== 1 ? 's' : '' }}:</h3>
           <div class="row g-3">
             <cocktail-card
                 class="col-md-6 col-lg-4"
-                v-for="(cocktail, index) in store.arrSearchCocktails"
+                v-for="(cocktail, index) in store.arrSearchCocktailsByIngredient"
                 :cocktail="cocktail"
                 :key="index"
             />
           </div>
         </div>
         <div v-else>
-          <h3 class="mb-4">Find <strong>{{ store.arrSearchCocktails.length }}</strong>
+          <h3 class="mb-4">Find <strong>{{ store.arrSearchCocktailsByIngredient.length }}</strong>
             cocktails</h3>
         </div>
       </transition>
@@ -56,6 +56,16 @@ export default {
   data() {
     return {
       store,
+      selectedIngredient: 'all',
+    }
+  },
+  methods: {
+    search() {
+      if (this.selectedIngredient.length !== 0) {
+        store.arrSearchCocktailsByIngredient = [];
+        this.$emit('search', this.selectedIngredient)
+        this.selectedIngredient = 'all';
+      }
     }
   }
 }
