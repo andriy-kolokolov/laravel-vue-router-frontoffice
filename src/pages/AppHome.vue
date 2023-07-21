@@ -23,8 +23,9 @@ export default {
 };
 </script>
 
+
 <template>
-  <div>
+  <div class="carousel-container">
     <div v-if="!showCocktails && !showAlcoholFree">
       <div v-if="!showCarousel">
         <button @click="showCarousel = true">Show Carousel</button>
@@ -39,7 +40,7 @@ export default {
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="../assets/bar1.jpg" class="d-block w-100" alt="First slide">
+              <img src="../assets/bar1.jpg" class="d-block w-100 fullscreen-img" alt="First slide">
               <div class="carousel-caption d-none d-md-block">
                 <h2 v-if="!showCocktails" @click="showCocktails = true">Click here for alcoholic cocktails</h2>
                 <div class="container" v-if="showCocktails">
@@ -48,7 +49,7 @@ export default {
               </div>
             </div>
             <div class="carousel-item">
-              <img src="../assets/bar2.jpg" class="d-block w-100" alt="Second slide">
+              <img src="../assets/bar2.jpg" class="d-block w-100 fullscreen-img" alt="Second slide">
               <div class="carousel-caption d-none d-md-block">
                 <h2 v-if="!showAlcoholFree" @click="showAlcoholFree = true">Click here for alcohol-free cocktails</h2>
                 <div v-if="showAlcoholFree">
@@ -68,7 +69,6 @@ export default {
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-        <!-- <button @click="showCarousel = false">Hide Carousel</button> -->
       </div>
     </div>
 
@@ -85,7 +85,14 @@ export default {
   </div>
 </template>
 
-
 <style lang="scss" scoped>
+.carousel-container {
+  height: 100%;
+  width: 100%;
+}
 
+.fullscreen-img {
+  width: 100%;
+  height: 100vh; /* Immagini a schermo intero */
+}
 </style>
