@@ -1,12 +1,16 @@
 <template>
-  <div class="card">
-    <div class="card-img-wrapper">
-      <img :src="cocktail.image" alt="card image">
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">{{ cocktail.name }}</h5>
-      <p class="card-text">{{ cocktail.recipe }}</p>
-      <a href="#" class="btn btn-primary">show cocktail</a>
+  <div>
+    <div class="card h-100">
+      <div class="card-img-wrapper">
+        <img :src="cocktail.image" alt="card image">
+      </div>
+      <div class="card-body d-flex flex-column">
+        <h4 class="card-title align-self-auto">{{ cocktail.name }}</h4>
+        <div>
+          <strong>Recipe: </strong>
+          <div class="card-description"><br>{{ cocktail.recipe }}</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -45,6 +49,15 @@ export default {
       scale: 1.05;
     }
 
+
+  }
+
+  .card-body {
+
+    .card-description {
+      overflow: auto;
+      max-height: 250px;
+    }
   }
 }
 
