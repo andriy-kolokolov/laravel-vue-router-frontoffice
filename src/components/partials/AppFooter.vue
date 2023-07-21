@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <footer class="bg-dark text-white">
+  <footer class="mt-5 bg-dark text-white">
     <div
       class="content container d-flex align-items-center justify-content-between"
     >
