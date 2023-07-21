@@ -2,15 +2,90 @@
 import CocktailsList from "../components/CocktailsList.vue";
 import AlcoholFree from "../pages/AppAlcoholFree.vue";
 export default {
-  components: { CocktailsList },
-  AlcoholFree,
+  data() {
+    return {
+      showCocktails: false,
+      showAlcoholFree: false,
+      showCarousel: true, // Impostato su true all'inizio per mostrare il carosello
+    };
+  },
+  methods: {
+    goToHome() {
+      this.showCocktails = false;
+      this.showAlcoholFree = false;
+    },
+  },
+  components: { 
+    CocktailsList,
+    AlcoholFree, 
+  },
+  
 };
 </script>
 
 <template>
-  <h2>Bar</h2>
-  <cocktails-list />
-  <AlcoholFree />
+  <div>
+    <div v-if="!showCocktails && !showAlcoholFree">
+      <div v-if="!showCarousel">
+        <button @click="showCarousel = true">Show Carousel</button>
+      </div>
+      <div v-else>
+        <div id="carouselExampleCaptions" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="../assets/bar1.jpg" class="d-block w-100" alt="First slide">
+              <div class="carousel-caption d-none d-md-block">
+                <h2 v-if="!showCocktails" @click="showCocktails = true">Click here for alcoholic cocktails</h2>
+                <div class="container" v-if="showCocktails">
+                  <cocktails-list />
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="../assets/bar2.jpg" class="d-block w-100" alt="Second slide">
+              <div class="carousel-caption d-none d-md-block">
+                <h2 v-if="!showAlcoholFree" @click="showAlcoholFree = true">Click here for alcohol-free cocktails</h2>
+                <div v-if="showAlcoholFree">
+                  <AlcoholFree />
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <!-- <button @click="showCarousel = false">Hide Carousel</button> -->
+      </div>
+    </div>
+
+    <!-- Contenuto mostrato dopo il click sul carosello -->
+    <div v-if="showCocktails">
+      <button @click="goToHome">Back to Home</button>
+      <cocktails-list />
+    </div>
+
+    <div v-if="showAlcoholFree">
+      <button @click="goToHome">Back to Home</button>
+      <AlcoholFree />
+    </div>
+  </div>
 </template>
 
-<style></style>
+
+<style lang="scss" scoped>
+
+</style>
