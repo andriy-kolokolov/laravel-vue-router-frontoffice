@@ -15,14 +15,12 @@ export default {
       this.showAlcoholFree = false;
     },
   },
-  components: { 
+  components: {
     CocktailsList,
-    AlcoholFree, 
+    AlcoholFree,
   },
-  
 };
 </script>
-
 
 <template>
   <div class="carousel-container">
@@ -33,38 +31,68 @@ export default {
       <div v-else>
         <div id="carouselExampleCaptions" class="carousel slide">
           <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-              aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-              aria-label="Slide 2"></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="../assets/bar1.jpg" class="d-block w-100 fullscreen-img" alt="First slide">
+              <img
+                src="../assets/bar1.jpg"
+                class="d-block w-100 fullscreen-img"
+                alt="First slide"
+              />
               <div class="carousel-caption d-none d-md-block">
-                <h2 v-if="!showCocktails" @click="showCocktails = true">Click here for alcoholic cocktails</h2>
+                <h2 v-if="!showCocktails" @click="showCocktails = true">
+                  Click here for alcoholic cocktails
+                </h2>
                 <div class="container" v-if="showCocktails">
                   <cocktails-list />
                 </div>
               </div>
             </div>
             <div class="carousel-item">
-              <img src="../assets/bar2.jpg" class="d-block w-100 fullscreen-img" alt="Second slide">
+              <img
+                src="../assets/bar2.jpg"
+                class="d-block w-100 fullscreen-img"
+                alt="Second slide"
+              />
               <div class="carousel-caption d-none d-md-block">
-                <h2 v-if="!showAlcoholFree" @click="showAlcoholFree = true">Click here for alcohol-free cocktails</h2>
+                <h2 v-if="!showAlcoholFree" @click="showAlcoholFree = true">
+                  Click here for alcohol-free cocktails
+                </h2>
                 <div v-if="showAlcoholFree">
                   <AlcoholFree />
                 </div>
               </div>
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev">
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
+          >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next">
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
+          >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
@@ -74,12 +102,12 @@ export default {
 
     <!-- Contenuto mostrato dopo il click sul carosello -->
     <div v-if="showCocktails">
-      <button @click="goToHome">Back to Home</button>
+      <button @click="goToHome" class="btn btn-warning">Back to Home</button>
       <cocktails-list />
     </div>
 
     <div v-if="showAlcoholFree">
-      <button @click="goToHome">Back to Home</button>
+      <button @click="goToHome" class="btn btn-warning">Back to Home</button>
       <AlcoholFree />
     </div>
   </div>
